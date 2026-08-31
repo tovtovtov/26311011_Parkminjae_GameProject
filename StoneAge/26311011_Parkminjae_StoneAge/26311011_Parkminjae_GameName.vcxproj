@@ -25,6 +25,7 @@
     <ProjectGuid>{97d2c82b-fc4c-4b17-b757-4762dcbc6640}</ProjectGuid>
     <RootNamespace>My26311011ParkminjaeGameName</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>26311011_Parkminjae_StoneAge</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
