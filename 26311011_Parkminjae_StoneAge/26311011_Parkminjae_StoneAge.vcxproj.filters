@@ -27,10 +27,10 @@
     <ClCompile Include="SceneBegin.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ScenePlay.cpp">
+    <ClCompile Include="SceneResult.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SceneResult.cpp">
+    <ClCompile Include="CScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +44,10 @@
     <ClInclude Include="SceneBegin.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ScenePlay.h">
+    <ClInclude Include="SceneResult.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SceneResult.h">
+    <ClInclude Include="CScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

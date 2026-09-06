@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <string>
+#include "CScene.h"
 
 
 
@@ -16,13 +17,13 @@ public:
 protected:
 	int InitSdk();
 
-protected:
+	CScene* m_pScene = nullptr;
+
 	// windows
 	POINT m_winPos { 100, 100 };
-	SIZE m_winSize { 800, 600 };
+	SIZE m_winSize { 1024, 765 };
 
 	std::string m_winName = "StoneAge"; // 윈도우 창 제목
 
-	int m_tx = -1;
 };
 

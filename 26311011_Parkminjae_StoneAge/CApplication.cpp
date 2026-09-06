@@ -1,9 +1,11 @@
-#include "CApplication.h"
-#include "glc2d.h"
 #include <stdio.h>
 
-extern CApplication g_App;
+#include "CApplication.h"
+#include "glc2d.h"
+#include "SceneBegin.h"
 
+
+extern CApplication g_App;
 
 int RenderApp()
 {
@@ -19,40 +21,53 @@ int UpdateApp()
 
 int CApplication::Init()
 {
-	
+	// 초기화 및 초기 데이터 로딩
 	g2_InitSdk();
 
+	// 데이터 업데이트 및 렌더링
 	g2_SetFrameMove(UpdateApp);
 	g2_SetRender(RenderApp);
 	
 	// window 생성.
 	g2_CreateWin(m_winPos.x, m_winPos.y, m_winSize.cx, m_winSize.cy, m_winName.c_str());
 
-
-	// 그림을 프로그램에 로딩
-	m_tx = g2_TextureLoad("Texture/gamestart.png");
-
+	m_pScene = new SceneBegin();
+	m_pScene->Init();
+	
 	return 0;
 }
 
 int CApplication::Update()
 {
-	printf("Update...\n\n");
+	if (m_pScene) // 씬이 존재하면 업데이트
+	{
+		m_pScene->Update(); // 씬 업데이트
+	}
+
 	return 0;
 }
 
 int CApplication::Render()
 {
-	printf("Render...\n\n");
+	if (m_pScene) // 씬이 존재하면 렌더링
+	{
+		m_pScene->Render(); // 씬 렌더링
+	}
+
 	return 0;
 }
 
 int CApplication::Destroy()
 {
-	// 텍스처 해제
-	g2_TextureRelease(m_tx);
+	
+	if(m_pScene)
+	{
+		m_pScene->Destroy();
+		delete m_pScene;
+		m_pScene = nullptr;
+	}
 
-	// 윈도우 해제
+	// 마무리, 윈도우 해제
 	g2_DestroyWin();
 
 	return 0;

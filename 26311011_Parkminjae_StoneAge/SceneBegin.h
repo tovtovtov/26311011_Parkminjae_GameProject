@@ -1,10 +1,14 @@
 #pragma once
-class SceneBegin
+#include "CScene.h"
+
+class SceneBegin : public CScene
 {
 public:
-	int Init();
-	int Update();
-	int Render();
-	int Destroy();
-};
+	int Init() override;
+	int Update() override;
+	int Render() override;
+	int Destroy() override;
 
+protected:
+	int m_TxgameStart = -1;
+};
