@@ -11,7 +11,7 @@ int CScene::Update()
 	return 0;
 }
 
-int CScene::Render()
+int Render(CApplication& application)
 {
 	return 0;
 }

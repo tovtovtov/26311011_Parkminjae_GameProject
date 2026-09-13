@@ -6,7 +6,7 @@ class SceneResult : public CScene
 public:
 	int Init() override;
 	int Update() override;
-	int Render() override;
+	int Render(CApplication& application) override;
 	int Destroy() override;
 
 protected:
