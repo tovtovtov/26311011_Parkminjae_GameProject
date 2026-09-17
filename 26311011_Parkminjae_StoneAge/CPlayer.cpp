@@ -3,7 +3,7 @@
 
 int CPlayer::Init()
 {
-	m_TxPlayer = g2_TextureLoad("Texture/player.png");
+	m_MeleeAttackChar_tx = g2_TextureLoad("Texture/player.png");
 
 
 	return 0;
@@ -20,7 +20,7 @@ int CPlayer::Update()
 int CPlayer::Render()
 {
 	VEC2 pos = { 512, 340 };
-	g2_Draw2D(m_TxPlayer, {}, &pos);
+	g2_Draw2D(m_MeleeAttackChar_tx, {}, &pos);
 
 
 	return 0;
@@ -28,8 +28,19 @@ int CPlayer::Render()
 
 int CPlayer::Destroy()
 {
-	g2_TextureRelease(m_TxPlayer);
+	g2_TextureRelease(m_MeleeAttackChar_tx);
 
 
 	return 0;
 }
+
+void CPlayer::TakeDamage(int m_CurHp, int m_damage)
+{
+	m_CurHp -= m_damage;
+	if (m_CurHp < 0)
+	{
+		m_CurHp = 0;
+	}
+}
+
+

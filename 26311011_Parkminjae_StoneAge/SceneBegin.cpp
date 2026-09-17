@@ -3,6 +3,9 @@
 #include "ScenePlay.h"
 #include "CApplication.h"
 
+#define GAME_START_BUTTON_RECT mouseX >= 330 && mouseX <= 700 && mouseY >= 330 && mouseY <= 370
+#define EXIT_BUTTON_RECT mouseX >= 330 && mouseX <= 700 && mouseY >= 390 && mouseY <= 430
+
 extern CApplication g_App;
 
 int SceneBegin::Init()
@@ -19,11 +22,11 @@ int SceneBegin::Update()
 
 	if (g2_GetMouseEvent(0) == EINPUT_DOWN) // 마우스 왼쪽 버튼 클릭
 	{
-		if (mouseX >= 330 && mouseX <= 700 && mouseY >= 330 && mouseY <= 370) // "GAME START" 버튼 영역
+		if (GAME_START_BUTTON_RECT) // "GAME START" 버튼 영역
 		{
 			g_App.ChangeScene(new ScenePlay()); // 게임 플레이 씬으로 전환
 		}
-		else if (mouseX >= 330 && mouseX <= 700 && mouseY >= 390 && mouseY <= 430) // "EXIT" 버튼 영역
+		else if (EXIT_BUTTON_RECT) // "EXIT" 버튼 영역
 		{
 			g2_DestroyWin(); // 게임 종료
 		}
