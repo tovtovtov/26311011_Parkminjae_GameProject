@@ -19,8 +19,8 @@ int CPlayer::Update()
 
 int CPlayer::Render()
 {
-	VEC2 pos = { 512, 340 };
-	g2_Draw2D(m_MeleeAttackChar_tx, {}, &pos);
+	
+	g2_Draw2D(m_MeleeAttackChar_tx, {},&m_Pos, &m_Size);
 
 
 	return 0;
@@ -41,6 +41,28 @@ void CPlayer::TakeDamage(int m_CurHp, int m_damage)
 	{
 		m_CurHp = 0;
 	}
+}
+
+void CPlayer::Heal(int m_CurHp, int m_heal)
+{
+	m_CurHp += m_heal;
+	if (m_CurHp > this->m_MaxHp)
+	{
+		m_CurHp = this->m_MaxHp;
+	}
+}
+
+bool CPlayer::isDead(int m_CurHp)
+{
+	if (m_CurHp <= 0)
+	{
+		return true;
+	}
+}
+
+void CPlayer::MovePlayer()
+{
+	g2_GetKeyboard
 }
 
 
