@@ -1,4 +1,5 @@
 #pragma once
+#include "glc2d.h"
 
 enum class PlayerType
 {
@@ -26,8 +27,8 @@ public:
 	void Heal(int m_CurHp, int m_heal);					// 플레이어가 회복했을 때 처리
 	bool isDead(int m_CurHp);							// 플레이어가 사망했을 때 처리	
 	void MovePlayer(); 									// 플레이어 이동 처리
-	void UpgradeStats();								// 플레이어 능력치 업그레이드 처리
-	virtual void AttackPlayer();						// 플레이어 공격 처리
+	// void UpgradeStats();								// 플레이어 능력치 업그레이드 처리
+	// virtual void AttackPlayer();						// 플레이어 공격 처리
 	
 private:
 	int m_MaxHp = 100;						// 총 체력

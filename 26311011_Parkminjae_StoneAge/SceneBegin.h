@@ -10,5 +10,7 @@ public:
 	int Destroy() override;
 
 protected:
-	int m_BackGround = -1;
+	int m_BackGroundTexture = -1;
+	
+	int m_BackGroundMusic = -1;
 };

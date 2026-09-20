@@ -58,11 +58,12 @@ bool CPlayer::isDead(int m_CurHp)
 	{
 		return true;
 	}
+	return false;
 }
 
 void CPlayer::MovePlayer()
 {
-	g2_GetKeyboard
+	
 }
 
 
