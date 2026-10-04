@@ -10,14 +10,14 @@ extern CApplication g_App;
 int RenderApp()
 {
 	g_App.Render();
-	printf("렌더링 중...\n");
+	//printf("렌더링 중...\n");
 	return 0;
 }
 
 int UpdateApp()
 {
 	g_App.Update();
-	printf("업데이트 중...\n");
+	//printf("업데이트 중...\n");
 	return 0;
 }
 
@@ -31,8 +31,8 @@ int CApplication::Init()
 	// window 생성.
 	g2_CreateWin(m_winPos.x, m_winPos.y, m_winSize.cx, m_winSize.cy, m_winName.c_str());
 
-	m_Resource.fontTitle = g2_FontCreate("Arial", 50, 0);
-	m_Resource.fontMenu = g2_FontCreate("Arial", 30, 0);
+	m_Resource.fontTitle = g2_FontCreate("Arial", 80, 0);
+	m_Resource.fontMenu = g2_FontCreate("Arial", 50, 0);
 	m_Resource.fontNormal = g2_FontCreate("Arial", 20, 0);
 
 	m_pScene = new SceneBegin();

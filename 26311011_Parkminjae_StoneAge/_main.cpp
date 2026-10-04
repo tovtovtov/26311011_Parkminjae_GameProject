@@ -6,7 +6,6 @@
 
 CApplication g_App; // app class 전역 선언
 
-
 int main()
 {
 	
