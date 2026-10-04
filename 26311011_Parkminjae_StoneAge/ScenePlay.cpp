@@ -8,7 +8,7 @@ int ScenePlay::Init()
 {
 	m_Gen.seed(m_Rd());
 	m_SideDist = std::uniform_int_distribution<int>(0, 3);
-	m_width = std::uniform_int_distribution<int>(0, g2_GetScnW() - 1);
+	m_Width = std::uniform_int_distribution<int>(0, g2_GetScnW() - 1);
 	m_Height = std::uniform_int_distribution<int>(0, g2_GetScnH() - 1);
 
 	m_Map.Init();
@@ -39,6 +39,7 @@ int ScenePlay::Init()
 
 int ScenePlay::Update()
 {
+	// 게임 종료 시점 이동용
 	const KEYCODE* keyboard = g2_GetKeyboard();
 	if (keyboard[VK_ESCAPE] != EINPUT_NONE)
 	{
@@ -89,7 +90,7 @@ int ScenePlay::Update()
 	CheckPlayerAttack(); // 플레이어 공격 히트 확인
 
 	// 플레이어 사망 확인 시 결과창 전환
-	if (m_Player.isDead())
+	if (m_Player.IsDead())
 	{
 		g_App.ChangeScene(new SceneResult(false, m_remainSecond, m_EnemyKillCount, m_CurHp));
 		return 0;
@@ -187,7 +188,7 @@ VEC2 ScenePlay::GetEnemySpawnPosition()
 	while (true)
 	{
 		int side = m_SideDist(m_Gen); // 스폰 위치 (상하좌우)
-		float spawnX = (float)m_width(m_Gen); // 생성 범위 지정 넓이
+		float spawnX = (float)m_Width(m_Gen); // 생성 범위 지정 넓이
 		float spawnY = (float)m_Height(m_Gen); // 생성 범위 지정 높이
 
 		switch (side)
@@ -248,7 +249,7 @@ void ScenePlay::CheckPlayerEnemyCollision()
 				m_Player.TakeDamage(10); // 무적이 아닐 시 피해
 				g2_SoundPlay(m_Hurt_Sound);
 				m_CurHp = m_Player.GetCurHp();
-				m_Player.Startinvincible(); // 무적 타임 시작
+				m_Player.StartInvincible(); // 무적 타임 시작
 			}
 		}
 	}
@@ -277,10 +278,10 @@ void ScenePlay::CheckEnemyEnemyCollision()
 
 			auto distanceSquared = dx * dx + dy * dy;
 
-			float checkDistance = 100.0f;
+			const float EnemyCheckDistance = 100.0f;
 
 			// 거리가 먼 적은 패스
-			if (distanceSquared > checkDistance * checkDistance)
+			if (distanceSquared > EnemyCheckDistance * EnemyCheckDistance)
 				continue;
 
 			// 충돌 확인

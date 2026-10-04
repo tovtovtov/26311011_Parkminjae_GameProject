@@ -2,7 +2,6 @@
 #include "CScene.h"
 #include "glc2d.h"
 #include <stdio.h>
-#include "ScenePlay.h"
 
 class SceneResult : public CScene
 {

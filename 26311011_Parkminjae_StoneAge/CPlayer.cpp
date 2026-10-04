@@ -35,7 +35,7 @@ int CPlayer::Update()
 		m_PosY - m_Height / 2.0f
 	};
 
-	m_Attack_Effetc_Pos = {
+	m_Attack_Effect_Pos = {
 		(float)m_AttackRect.left,
 		(float)m_AttackRect.top
 	};
@@ -62,10 +62,10 @@ int CPlayer::Render()
 	if (m_IsAttacking)
 	{
 		if (m_Direction == ATTACK_RIGHT) {
-			g2_Draw2D(m_Attack_Effect_right_tx, {}, &m_Attack_Effetc_Pos, {});
+			g2_Draw2D(m_Attack_Effect_right_tx, {}, &m_Attack_Effect_Pos, {});
 		}
 		else
-			g2_Draw2D(m_Attack_Effect_left_tx, {}, &m_Attack_Effetc_Pos, {});
+			g2_Draw2D(m_Attack_Effect_left_tx, {}, &m_Attack_Effect_Pos, {});
 	}
 
 	return 0;
@@ -100,7 +100,7 @@ int CPlayer::GetCurHp()
 	return m_CurHp;
 }
 
-bool CPlayer::isDead()
+bool CPlayer::IsDead()
 {
 	return m_CurHp <= 0;
 }
@@ -194,7 +194,7 @@ bool CPlayer::IsInvincible()
 	return  current - m_InvincibleTimer < InvincibleTime;
 }
 
-void CPlayer::Startinvincible()
+void CPlayer::StartInvincible()
 {
 	m_InvincibleTimer = g2_TimeGetTime();
 }

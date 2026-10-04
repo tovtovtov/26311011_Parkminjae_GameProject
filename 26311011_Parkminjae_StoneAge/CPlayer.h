@@ -1,7 +1,5 @@
 #pragma once
 #include "glc2d.h"
-#include "glc2d.h"
-#include <stdio.h>
 
 #define InvincibleTime 1000
 
@@ -24,11 +22,11 @@ public:
 	
 	void TakeDamage(int damage);						// 플레이어가 데미지를 입었을 때 처리
 	int GetCurHp();									// 현재 체력 전달 함수
-	bool isDead();										// 플레이어가 사망했을 때 처리	
+	bool IsDead();										// 플레이어가 사망했을 때 처리	
 	void MovePlayer(); 									// 플레이어 이동 처리
 
 	bool IsInvincible();								// 플레이어 무적 여부 확인
-	void Startinvincible();								// 무적 활성화
+	void StartInvincible();								// 무적 활성화
 
 	bool IsAttack();									// 공격 여부 확인
 	RECT GetAttackRect();								// 공격 범위 Rect 전달 함수
@@ -45,8 +43,7 @@ private:
 	VEC2 m_Draw_Pos{};									// 좌상단 좌표
 	VEC2 m_Scale = { 0.5f, 0.5f };						// 스케일
 
-	VEC2 m_Attack_Effetc_Pos{};
-	long long m_AttackEffectTimer = 0;
+	VEC2 m_Attack_Effect_Pos{};
 	int m_AttackEffectTime = 100;						// 이펙트 출력 시간
 
 	int m_MaxHp = 100;									// 총 체력

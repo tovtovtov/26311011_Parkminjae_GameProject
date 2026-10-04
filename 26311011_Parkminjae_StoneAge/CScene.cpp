@@ -11,11 +11,6 @@ int CScene::Update()
 	return 0;
 }
 
-int Render(CApplication& application)
-{
-	return 0;
-}
-
 int CScene::Destroy()
 {
 	return 0;

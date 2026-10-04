@@ -63,7 +63,7 @@ private:
 	std::random_device m_Rd;
 	std::mt19937 m_Gen;
 	std::uniform_int_distribution<int> m_SideDist; // ªÛ«œ¡¬øÏ πÊ«‚
-	std::uniform_int_distribution<int> m_width; // ≥–¿Ã
+	std::uniform_int_distribution<int> m_Width; // ≥–¿Ã
 	std::uniform_int_distribution<int> m_Height; // ≥Ù¿Ã
 
 	int m_Boar_right_tx = -1;

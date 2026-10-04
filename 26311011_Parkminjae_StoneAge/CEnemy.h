@@ -28,9 +28,6 @@ private:
     float m_PosX = 800.0f;
     float m_PosY = 800.0f;
 
-    float m_OldPosX = 0.0f;
-    float m_OldPosY = 0.0f;
-
     VEC2 m_Draw_Pos;
 
     float m_Width{};
